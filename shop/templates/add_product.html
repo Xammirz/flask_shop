@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+<html>
+<head>
+  <meta charset="UTF-8">
+   <link rel="stylesheet" href="static/style.css" type="text/css">
+ <title>Добавление товара</title>
+  </head>
+<body>
+ <form action="" method="POST" enctype="multipart/form-data" class="form">
+  
+  <h1 class="form_title">Добавление товара</h1>
+
+  <div>
+    <label >Название</label>
+    <input type="text" name="title">
+  </div>
+  <div>
+    <label >Цена товара</label>
+    <input type="number" name="price" min="1">
+  </div>
+  <div>
+    <label >Описание</label>
+    <input type="text" name="description">      
+  </div>
+  <div>
+    <label >Наличие</label>
+    <input type="text" name="availibility">     
+  </div>
+  <div>
+    <label>Категория</label>
+    <input type="text" name="category">      
+  </div>
+  <div>
+    <label>Фото</label>
+    <input type="file" name="image">
+  </div>
+
+  <button class="form_button">Добавить</button>
+
+ </form>
+<body>
+</html>
+
+{% endblock %}

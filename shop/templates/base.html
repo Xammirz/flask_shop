@@ -50,24 +50,19 @@
 						<ul class="nav navbar-nav menu_nav ml-auto">
 							<li class="nav-item active"><a class="nav-link" href="{{ url_for('index') }}">Home</a></li>
 							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+								<a href="{{ url_for('singleproduct') }}" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
 								 aria-expanded="false">Shop</a>
 								<ul class="dropdown-menu">
 									<li class="nav-item"><a class="nav-link" href="{{ url_for('category') }}">Shop Category</a></li>
 									<li class="nav-item"><a class="nav-link" href="{{ url_for('singleproduct') }}">Product Details</a></li>
 									<li class="nav-item"><a class="nav-link" href="{{ url_for('checkout') }}">Product Checkout</a></li>
-									<li class="nav-item"><a class="nav-link" href="{{ url_for('cart') }}">Shopping Cart</a></li>
 									<li class="nav-item"><a class="nav-link" href="{{ url_for('confirmation') }}">Confirmation</a></li>
 								</ul>
 							</li>
-							<li class="nav-item submenu dropdown">
-								<a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-								 aria-expanded="false">Blog</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="{{ url_for('blog') }}">Blog</a></li>
-									<li class="nav-item"><a class="nav-link" href="{{ url_for('singleblog') }}">Blog Details</a></li>
-								</ul>
-							</li>
+
+							<li class="nav-item"><a class="nav-link" href="{{ url_for('add_product') }}">Добавить товар</a></li>
+
+		
 							
 							
 						</ul>
@@ -81,15 +76,7 @@
 				</div>
 			</nav>
 		</div>
-		<div class="search_input" id="search_input_box">
-			<div class="container">
-				<form class="d-flex justify-content-between">
-					<input type="text" class="form-control" id="search_input" placeholder="Search Here">
-					<button type="submit" class="btn"></button>
-					<span class="lnr lnr-cross" id="close_search" title="Close Search"></span>
-				</form>
-			</div>
-		</div>
+
 	</header>
 	<!-- End Header Area -->
     {% block content %}
@@ -163,12 +150,6 @@
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
-				<p class="footer-text m-0"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-</p>
 			</div>
 		</div>
 	</footer>
