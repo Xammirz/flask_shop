@@ -115,7 +115,7 @@
 							<img class="img-fluid" src="{{ url_for('static', filename='img/product/' + product.image) }}" alt="">
 							<div class="product-details">
 								<p>{{ product.category }}</p>
-								<h6><a href="{{url_for('singleproduct') }}">{{ product.title }}</a></h6>
+								<h6><a href="{{url_for('product_detail',product_id=product.id) }}">{{ product.title }}</a></h6>
 								<div class="price">
 									<h6>${{ product.price }}</h6>
 								</div>
