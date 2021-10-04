@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
-
+	<link rel="stylesheet" href="static/stil.css" type="text/css">
 <body>
 
 
@@ -112,7 +112,7 @@
 					<!-- single product -->
 					<div class="col-lg-3 col-md-6">
 						<div class="single-product">
-							<img class="img-fluid" src="{{ url_for('static', filename='img/product/' + product.image) }}" alt="">
+							<img class="customers-img" src="{{ url_for('static', filename='img/product/' + product.image) }}" alt="">
 							<div class="product-details">
 								<p>{{ product.category }}</p>
 								<h6><a href="{{url_for('product_detail',product_id=product.id) }}">{{ product.title }}</a></h6>

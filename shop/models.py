@@ -1,4 +1,5 @@
 from enum import unique
+from flask_login.utils import confirm_login
 from werkzeug.exceptions import PreconditionRequired
 from flask_login import UserMixin
 
