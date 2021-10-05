@@ -1,6 +1,6 @@
 import os
 
-from flask import render_template, request, redirect, url_for
+from flask import render_template, request, redirect, url_for,flash
 from flask_login import login_user, logout_user, current_user
 from shop.forms import RegistrationForm
 from shop import app
@@ -23,13 +23,19 @@ def blog():
 def shop_category():
     return render_template('category.html')
 
-@app.route('/registration', methods=['GET', 'POST'])
+@app.route('/registration', methods=['GET','POST'])
 def registration():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     
-    form = RegistrationForm
-    return render_template('test.html', form=form)
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        user = User(email=form.email.data, password=form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        flash('Успешно!!', 'seccess')
+        return redirect(url_for('login'))       
+    return render_template('registration.html', form=form)
 
 
 

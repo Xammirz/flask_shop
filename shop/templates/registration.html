@@ -4,6 +4,7 @@
  <link rel="stylesheet" href="static/style.css" type="text/css">
 </head>
 <form class="row login_form" action="" id="registration_form" method="POST">
+  {{ form.hidden_tag() }}
   <div class="row">
     <div class="col-lg-6">
     </div>
@@ -13,18 +14,46 @@
       <hr>
   
       <label for="email"><b>Email</b></label>
-      <input type="email" class="form-control" id="name" name="email" placeholder="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Username'">
+      {% if form.email.errors %}
+							{{ form.email(class="form-control form-control-lg is-invalid", placeholder='Email Address') }}
+							<div class="invalid-feedback">
+								{% for error in form.email.errors %}
+								<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ form.email(class="form-control form-control-lg", placeholder='Email Address') }}
+							{% endif %}
       
   
       <label for="psw"><b>Password</b></label>
-      <input type="password" class="form-control" id="name" name="password" placeholder="password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Password'">
+      {% if form.email.errors %}
+							{{ form.password(class="form-control form-control-lg is-invalid", placeholder='password') }}
+							<div class="invalid-feedback">
+								{% for error in form.password.errors %}
+								<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ form.password(class="form-control form-control-lg", placeholder='password') }}
+							{% endif %}
       
   
       <label for="psw-repeat"><b>Repeat Password</b></label>
-      <input type="password" class="form-control" id="confirmPassword" name="confirm_password" placeholder="Confirm Password" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Confirm Password'">
+      {% if form.confirm_password.errors %}
+							{{ form.confirm_password(class="form-control form-control-lg is-invalid", placeholder='confirm_password') }}
+							<div class="invalid-feedback">
+								{% for error in form.confirm_password.errors %}
+								<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ form.confirm_password(class="form-control form-control-lg", placeholder='confirm_password') }}
+							{% endif %}
       <hr>
   
-    <button type="submit" class="registerbtn">Register</button>
+   
+    {{ form.submit(class='registerbtn', placeholder='register') }}
     </div>
   
     <div class="container signin">
