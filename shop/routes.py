@@ -33,7 +33,7 @@ def registration():
         user = User(email=form.email.data, password=form.password.data)
         db.session.add(user)
         db.session.commit()
-        flash('Успешно!!', 'seccess')
+        flash('Успешно!!', 'success')
         return redirect(url_for('login'))       
     return render_template('registration.html', form=form)
 
@@ -44,10 +44,11 @@ def login():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     if request.method == 'POST':
-        user = User.query.filter_by(email=request.form.get('email')).first()
+        user = User.query.filter_by(email=request.form.get('email'),password=request.form.get('password')).first()
         if user and user.email == request.form.get('email'):
-            login_user(user)
-            return redirect(url_for('index'))
+            if user and user.password == request.form.get('password'):
+                login_user(user)
+                return redirect(url_for('index'))
     return render_template('login.html')
 
 

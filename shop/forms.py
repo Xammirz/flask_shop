@@ -3,7 +3,7 @@ from werkzeug.utils import redirect
 from wtforms import StringField, PasswordField, SubmitField
 from wtforms.validators import DataRequired, Email, EqualTo, ValidationError
 import email_validator
-from flask import url_for
+from flask import url_for,request
 
 from shop.models import User
 
@@ -19,8 +19,6 @@ class RegistrationForm(FlaskForm):
         user = User.query.filter_by(email=email.data).first()
         if user:
             raise ValidationError('email существует')
-    def validate_login(self,email):
-        u = User.query.filter_by(email=email.data).first()
-        if u is None:
-            raise ValidationError('email существует')
+     
+       
 
