@@ -3,17 +3,23 @@
 <head>
  <link rel="stylesheet" href="static/style.css" type="text/css">
 </head>
-<form class="row login_form" action="" id="registration_form" method="POST">
+
+<form class="row login_form" action="" id="registration_form" method="POST" novalidate>
+
   {{ form.hidden_tag() }}
   <div class="row">
     <div class="col-lg-6">
     </div>
     <div class="container">
-      <h1>Register</h1>
-      <p>Please fill in this form to create an account.</p>
-      <hr>
-  
-      <label for="email"><b>Email</b></label>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+  <label for="email"><b>Email</b></label>
       {% if form.email.errors %}
 							{{ form.email(class="form-control form-control-lg is-invalid", placeholder='Email Address') }}
 							<div class="invalid-feedback">

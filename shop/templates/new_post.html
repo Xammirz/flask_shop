@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+ <link rel="stylesheet" href="static/style.css" type="text/css">
+</head>
+<form class="row login_form" action="" id="registration_form" method="POST" novalidate enctype="multipart/form-data">
+  {{ form.hidden_tag() }}
+  <div class="row">
+    <div class="col-lg-6">
+    </div>
+    <div class="container">
+    </br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+  <label for="email"><b>Заголовок</b></label>
+      {% if form.title.errors %}
+							{{ form.title(class="form-control form-control-lg is-invalid", placeholder='Заголовок') }}
+							<div class="invalid-feedback">
+								{% for error in form.email.errors %}
+								<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ form.title(class="form-control form-control-lg", placeholder='Заголовок') }}
+							{% endif %}
+      
+  
+      <label for="psw"><b>Контент</b></label>
+      {% if form.content.errors %}
+							{{ form.content(class="form-control form-control-lg is-invalid", placeholder='Контент') }}
+							<div class="invalid-feedback">
+								{% for error in form.content.errors %}
+								<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ form.content(class="form-control form-control-lg", placeholder='Контент') }}
+							{% endif %}
+      
+  
+      <label for="psw-repeat"><b>Изображение</b></label>
+      {% if form.image.errors %}
+							{{ form.image(class="form-control form-control-lg is-invalid", placeholder='Изображение') }}
+							<div class="invalid-feedback">
+								{% for error in form.image.errors %}
+								<span>{{ error }}</span>
+								{% endfor %}
+							</div>
+							{% else %}
+							{{ form.image(class="form-control form-control-lg", placeholder='Изоюражение') }}
+							{% endif %}
+      <hr>
+  
+   
+    {{ form.submit(class='registerbtn', placeholder='Отпраивть пост!') }}
+    </div>
+  
+    <div class="container signin">
+    </div>
+  </form>
+  {% endblock %}
